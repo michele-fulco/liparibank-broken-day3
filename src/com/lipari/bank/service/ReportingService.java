@@ -23,14 +23,8 @@ public class ReportingService {
      * Conta le transazioni di un dato tipo su tutti i conti forniti.
      */
     public long countTransactionsByType(List<Account> accounts, TransactionType type) {
-        debugLog.clear();
-        accounts.stream()
-                .flatMap(a -> a.getTransactions().stream())
-                .forEach(debugLog::add);
-
-        return debugLog.stream()
-                .filter(t -> t.type() == type)
-                .count();
+        Map<TransactionType,Long> map = groupTransactionsByType(accounts);
+        return map.get(type);
     }
 
     /** Somma i saldi di tutti i conti. */
