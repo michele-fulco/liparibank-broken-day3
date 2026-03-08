@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  */
 public class BankConfiguration {
 
-    private static BankConfiguration instance;
+    private static volatile BankConfiguration instance;
 
     // ─── Proprietà di configurazione ────────────────────────────────────────
 
