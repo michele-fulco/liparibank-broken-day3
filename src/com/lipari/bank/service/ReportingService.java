@@ -23,8 +23,7 @@ public class ReportingService {
      * Conta le transazioni di un dato tipo su tutti i conti forniti.
      */
     public long countTransactionsByType(List<Account> accounts, TransactionType type) {
-        Map<TransactionType,Long> map = groupTransactionsByType(accounts);
-        return map.get(type);
+        return groupTransactionsByType(accounts).get(type);
     }
 
     /** Somma i saldi di tutti i conti. */
